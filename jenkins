@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git_Checkout') {
+            steps {
+                echo 'checking out from GitHUb - Script'
+                git 'https://github.com/sunilv91/Test_Jenkins.git'
+                
+            }
+			}
+			}
+          
+        stage('Build/Compile') {
+            steps {
+                echo 'Building..'
+				bat 'Deployment.bat'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
